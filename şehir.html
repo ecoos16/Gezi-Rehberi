@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gezi Rehberi</title>
+  <link rel="stylesheet" href="sehir.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery kullanacağız -->
+</head>
+<body>
+  <header>
+    <h1>Gezi Rehberi</h1>
+    <!-- Kullanıcı Giriş ve Kayıt Butonları -->
+    <div class="user-links">
+      <ul>
+        <li><button onclick="window.location.href='kayit.html'" class="btn">Kayıt Ol</button></li>
+        <li><button onclick="window.location.href='giris.html'" class="btn">Giriş Yap</button></li>
+      </ul>
+    </div>
+
+  </header>
+
+  <main>
+
+    <div class="image-gallery">
+      <div class="image-item">
+        <a href="ankara.html">
+          <img src="ankaragiriş.jpg" alt="Ankara">
+          <div class="overlay">Ankara</div>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="antalya.html">
+          <img src="antalyagiriş.jpg" alt="Antalya">
+          <div class="overlay">Antalya</div>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="artvin.html">
+          <img src="artvingiriş.jpg" alt="Artvin">
+          <div class="overlay">Artvin</div>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="bursa.html">
+          <img src="bursagiriş.jpg" alt="Bursa">
+          <div class="overlay">Bursa</div>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="izmir.html">
+          <img src="izmirgiriş.jpg" alt="İzmir">
+          <div class="overlay">İzmir</div>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="hatay.html">
+          <img src="hataygiriş.jpg" alt="Hatay">
+          <div class="overlay">Hatay</div>
+        </a>
+      </div>
+      <div class="image-item single">
+        <a href="şanlıurfa.html">
+          <img src="şanlıurfagiriş.jpg" alt="Şanlıurfa">
+          <div class="overlay">Şanlıurfa</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Şehir Ekle ve Sil bağlantıları -->
+    <div class="action-links">
+      <h2>Şehir İşlemleri</h2>
+      <ul>
+        <li><a href="sehirekle.php">Şehir Ekle</a></li>
+        <li><a href="sehirsil.php">Şehir Sil</a></li>
+        <li><a href="gezirehberi.php" class="btn">Tablo</a></li> <!-- SQL Tablosu butonu -->
+      </ul>
+    </div>
+
+    
+    <div class="image-gallery" id="sehirler-listesi">
+      <!-- Şehirler burada dinamik olarak listelenecek -->
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Gezi Rehberi. Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script>
+    // Sayfa yüklendiğinde şehirleri veritabanından alıp listeleme
+    $(document).ready(function() {
+      fetchCities();
+
+      function fetchCities() {
+        $.ajax({
+          url: 'şehir.php',  // Şehirleri çekmek için şehir.php dosyasına AJAX isteği gönderiyoruz
+          method: 'GET',
+          dataType: 'json',  // Dönüş türünü JSON olarak belirliyoruz
+          success: function(data) {
+            var citiesList = '';  // Şehir listesi için boş bir değişken tanımlıyoruz
+            // JSON verisi geldikçe her şehir için HTML içeriği oluşturuyoruz
+            if (data.length > 0) {
+              $.each(data, function(index, city) {
+                citiesList += '<div class="image-item">';
+                // Eğer şehir resmi varsa, onu göster
+                if (city.sehir_foto) {
+                  citiesList += '<img src="' + city.sehir_foto + '" alt="' + city.Sehir_Ad + '">';
+                } else {
+                  citiesList += '<img src="placeholder.jpg" alt="' + city.Sehir_Ad + '">';  // Placeholder görseli
+                }
+                citiesList += '<div class="overlay">';
+                citiesList += '<p>' + city.Sehir_Ad + '<br>' + city.Sehir_Bolge + ' (Plaka: ' + city.Plaka + ')</p>';
+                citiesList += '</div>';
+                citiesList += '</div>';
+              });
+            } else {
+              citiesList = '<p>Henüz şehir eklenmemiş.</p>';
+            }
+            $('#sehirler-listesi').html(citiesList);  // HTML içeriğini doğru yere yerleştiriyoruz
+          },
+          error: function() {
+            alert("Şehir verilerini alırken bir hata oluştu.");
+          }
+        });
+      }
+    });
+  </script>
+</body>  
+</html>

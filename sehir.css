@@ -1,0 +1,251 @@
+/* Temel Stil Ayarları */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header (Başlık) */
+  header {
+    background:  #745338;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  user-links {
+    margin-top: 15px;
+  }
+  
+  .user-links ul {
+    list-style: none; /* Madde işaretlerini kaldırır */
+    padding: 0;
+    display: flex; /* Yatay hizalama sağlar */
+    justify-content: center; /* Butonları ortalar */
+    gap: 20px; /* Öğeler arasındaki boşluk */
+  }
+  
+  .user-links .btn {
+    background-color: #745338; /* Toprak rengi arka plan */
+    color: white;
+    font-size: 16px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .user-links .btn:hover {
+    background-color: #614633; /* Hoverda daha koyu toprak rengi */
+    transform: scale(1.05); /* Hoverda butonu biraz büyütür */
+  }
+  
+  .user-links .btn:active {
+    background-color: #6b3f1b; /* Tıklama sırasında daha koyu renk */
+    transform: scale(0.98); /* Tıklama sırasında biraz küçülme */
+  }
+  
+  
+  /* Navigation Menü */
+  nav ul {
+    list-style: none; /* Madde işaretlerini kaldırır */
+    padding: 0; /* Varsayılan iç boşluğu sıfırlar */
+    display: flex; /* Yatay hizalama sağlar */
+    justify-content: center; /* Menü öğelerini ortalar */
+    gap: 20px; /* Öğeler arasındaki boşluk */
+  }
+  
+  nav ul li a {
+    font-size: 18px; /* Yazı boyutunu büyütür */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    color: #333; /* Yazı rengi */
+    padding: 10px 15px; /* İç boşluk ekler */
+    border-radius: 5px; /* Kenarları yuvarlar */
+    transition: background-color 0.3s; /* Hover efekti için geçiş efekti */
+  }
+  
+  nav ul li a:hover {
+    background-color: #f0f0f0; /* Hover durumunda arka plan rengi değişir */
+  }
+  
+  /* Main Alan (Ana İçerik) */
+  main {
+    padding: 20px;
+  }
+  
+  /* Resim Galerisi Düzeni */
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Esnek düzenle fotoğraflar taşar */
+    gap: 20px; /* Öğeler arasındaki boşluk */
+    justify-content: center;
+  }
+  
+  .image-item {
+    position: relative;
+    width: calc(50% - 10px); /* Her satıra 2 fotoğraf gelecek, 50% genişlik - gap'in yarısı */
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden; /* Resim kenarlarının dışa taşmasını engeller */
+  }
+  
+  .image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-item img:hover {
+    transform: scale(1.1); /* Resim üzerine gelindiğinde büyür */
+  }
+  
+  /* Resim Üzerindeki Yazı */
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    visibility: hidden; /* Başlangıçta gizli */
+  }
+  
+  .image-item:hover .overlay {
+    visibility: visible; /* Resim üzerine gelindiğinde görünür */
+  }
+  
+  /* Tek Fotoğraf için Ayar (Alt Satırdaki Tek Fotoğraf) */
+  .image-item.single {
+    width: 100%; /* Sadece tek fotoğraf olduğu için genişliği %100 yapıyoruz */
+  }
+  
+  /* Action Links (Şehir Ekle/Sil bağlantıları) */
+  .action-links {
+    margin-top: 40px;
+    text-align: center; /* Bağlantıları merkeze yerleştirir */
+  }
+  
+  .action-links h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px; /* Başlık ile bağlantılar arasına boşluk ekler */
+  }
+  
+  .action-links ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Yatay hizalama sağlamak için flexbox kullanıyoruz */
+    justify-content: center; /* Öğeleri ortalar */
+    gap: 20px; /* Öğeler arasındaki boşluk */
+  }
+  
+  .action-links ul li {
+    margin: 0; /* Liste öğeleri arasındaki boşluğu sıfırladık */
+  }
+  
+  .action-links a {
+    display: inline-block;
+    background-color: #a0522d; /* Toprak rengi arka plan */
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s ease; /* Hover efekti ve büyüme için geçiş */
+    font-weight: bold; /* Yazıyı kalın yapar */
+  }
+  
+  .action-links a:hover {
+    background-color: #8b4513; /* Hoverda daha koyu toprak rengi */
+    transform: scale(1.05); /* Hoverda butonu biraz büyütür */
+  }
+  
+  .action-links a:active {
+    background-color: #6b3f1b; /* Tıklama sırasında daha koyu renk */
+    transform: scale(0.98); /* Tıklama sırasında biraz küçülme */
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: white;
+    margin-top: 40px; /* City card'lar ile footer arasında boşluk */
+  }
+  
+  /* Yeni Şehir Ekleme Div Stil */
+  .city-card {
+    background-color: #f9f9f9; /* Şehir kartı için açık gri arka plan */
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Her şehir kartının arasına boşluk ekler */
+    width: calc(50% - 20px); /* Her kartın genişliği %50 olacak şekilde ayarlandı */
+  }
+  
+  /* Flex düzeni ile her yeni şehir kartının altına eklenmesini sağlar */
+  #sehirler-listesi {
+    display: flex;
+    flex-wrap: wrap; /* Flex öğelerini sarmak için wrap özelliğini ekledik */
+    justify-content: space-between; /* Kartları yan yana yerleştirir */
+    gap: 20px; /* Kartlar arasındaki boşluğu ayarlar */
+    margin-bottom: 20px; /* Footer ile aradaki boşluk için ekleme */
+  }
+  
+  /* Responsive (Duyarlı) Tasarım */
+  
+  /* 768px'den küçük ekranlar için (Tablet ve küçük ekranlar) */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column; /* Menü öğelerini dikey hizalar */
+      gap: 10px; /* Menü öğeleri arasındaki boşluğu azaltır */
+    }
+  
+    .city-card {
+      width: 100%; /* Şehir kartlarını %100 genişlikte yapar */
+    }
+  
+    .image-item {
+      width: 100%; /* Resim öğelerinin genişliğini %100 yapar */
+      height: 150px; /* Yüksekliği daha uygun hale getirir */
+    }
+  
+    header h1 {
+      font-size: 1.5em; /* Başlık boyutunu küçük ekranlarda azaltır */
+    }
+  }
+  
+  /* 480px'den küçük ekranlar için (Telefonlar) */
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.2em; /* Başlık boyutunu telefon ekranlarında daha da küçültür */
+    }
+  
+    nav ul {
+      flex-direction: column; /* Menü öğeleri tamamen dikey olur */
+      align-items: center; /* Menü öğelerini ortalar */
+    }
+  
+    .action-links a {
+      font-size: 16px; /* Bağlantı yazı boyutunu küçültür */
+      padding: 8px 20px; /* Bağlantı butonlarının boyutunu küçültür */
+    }
+  
+    footer {
+      font-size: 0.8em; /* Footer yazı boyutunu küçültür */
+    }
+    
+    
+  }
+  

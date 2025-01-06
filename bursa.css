@@ -1,0 +1,183 @@
+/* Temel Stil Ayarları */
+body {
+    background-image: url('arkaplan.jpg'); /* Resmin dosya yolu */
+    background-size: cover; /* Resmi ekranı tamamen kaplayacak şekilde ayarla */
+    background-repeat: no-repeat; /* Resmin tekrar etmesini engelle */
+    background-position: center; /* Resmi ortala */ 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  /* Başlık ve Metin */
+  h3 {
+    text-align: center;
+    color: #333;
+    margin-top: 40px;
+    font-size: 24px;
+  }
+  
+  h2 {
+    color: #333;
+    margin-top: 40px;
+    font-size: 24px;
+  }
+  
+  section {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  /* Uludağ ve Cumalıkızık Container */
+  .places-container {
+    display: flex;  /* Flexbox kullanarak yan yana hizalar */
+    justify-content: space-between;  /* Her iki öğe arasında boşluk bırakır */
+    gap: 20px;  /* Bölümler arasında boşluk bırakır */
+    margin: 20px;
+  }
+  
+  /* Uludağ ve Cumalıkızık Bölümleri */
+  .mekan1, .mekan2 {
+    flex: 1;  /* Her biri eşit genişlikte olacak şekilde ayarlanır */
+    background-color: #d3b389;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;  /* Padding'in genişliği etkilememesi için */
+  }
+  
+  /* Resimlerin Düzenlenmesi */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+  }
+  
+  /* Ekstra Mekanlar */
+  .mekan3, .mekan4 {
+    flex: 1; /* Kutuların eşit genişlikte olmasını sağlar */
+    background-color: #d3b389; /* Beyaz arka plan */
+    padding: 20px; /* İç boşluk */
+    border-radius: 10px; /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    text-align: center; /* Yazıları ortala */
+    box-sizing: border-box; /* Padding'in genişliği etkilemesini önler */
+    max-width: calc(50% - 10px); /* Her kutunun genişliğini sınırlayın */
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+  }
+  
+  /* Bursa'da Ne Yenir Kısımları */
+  .food-section {
+    display: flex;  /* Flexbox düzeni ile kutuları yan yana yerleştirir */
+    justify-content: space-between;  /* Aralarındaki boşluğu dengeler */
+    gap: 20px;  /* Kutu arası mesafe */
+    margin: 40px 20px;  /* Üst ve alt boşluklar */
+  }
+  
+  .food-item {
+    background-color: #d3b389;  /* Beyaz arka plan */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    padding: 20px;  /* İç boşluk */
+    text-align: center;  /* Yazıları ortalar */
+    flex: 1;  /* Her kutu eşit genişlikte olur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Hafif gölge */
+    box-sizing: border-box;  /* İç boşluklar genişliği etkilemesin */
+  }
+  
+  .food-item img {
+    width: 100%;  /* Resim kutu içinde tam genişlikte */
+    max-width: 250px;  /* Maksimum genişlik */
+    height: auto;
+    border-radius: 8px;  /* Resim köşe yuvarlama */
+  }
+  
+  .food-item h4 {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .food-item p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  
+  /* Responsive (Duyarlı) Tasarım */
+  
+  /* 768px'den küçük ekranlar için (Tablet ve küçük ekranlar) */
+  @media (max-width: 768px) {
+    .places-container {
+      flex-direction: column; /* Küçük ekranlarda alt alta dizilir */
+    }
+  
+    .mekan1, .mekan2, .mekan3, .mekan4 {
+      width: 100%;  /* Kartları %100 genişliğe ayarlar */
+      max-width: 100%;  /* Kartların genişliğini sınırlamadan %100 yapar */
+    }
+  
+    .food-section {
+      flex-direction: column; /* Yemek öğelerini dikey hizalar */
+    }
+  
+    .food-item {
+      width: 100%; /* Yemek kutularının genişliği %100 yapılır */
+    }
+  
+    .image-container {
+      flex-direction: column; /* Resimleri alt alta sıralar */
+      gap: 10px; /* Aralarındaki boşluğu azaltır */
+    }
+  
+    footer {
+      font-size: 12px; /* Footer yazı boyutunu küçültür */
+    }
+  }
+  
+  /* 480px'den küçük ekranlar için (Telefonlar) */
+  @media (max-width: 480px) {
+    body {
+      font-size: 14px; /* Sayfa genelindeki yazı boyutunu küçültür */
+    }
+  
+    h3, h2 {
+      font-size: 20px; /* Başlık boyutlarını küçültür */
+    }
+  
+    .places-container {
+      flex-direction: column;  /* Küçük ekranlarda alt alta dizilir */
+    }
+  
+    .food-section {
+      flex-direction: column; /* Dikey hizalamayı korur */
+    }
+  
+    .food-item {
+      padding: 15px; /* Yemek kutularının iç boşluklarını küçültür */
+    }
+  
+    .image-container img {
+      max-width: 100%; /* Resimlerin tam genişlikte olmasını sağlar */
+    }
+  
+    footer {
+      font-size: 12px; /* Footer yazı boyutunu daha da küçültür */
+    }
+  }
+  
